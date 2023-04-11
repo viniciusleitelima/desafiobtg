@@ -1,0 +1,29 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.9-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+  mongodb:
+    image: mongo:4.4
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo:/data/db
+
+  desafiobtg:
+    image: viniciusll/desafio-btg:latest
+    container_name: desafiobtg
+    environment:
+      spring_data_mongodb_uri: mongodb://mongodb:27017/pedidos
+      spring_rabbitmq_host: rabbitmq
+    ports:
+      - "8080:8080"
