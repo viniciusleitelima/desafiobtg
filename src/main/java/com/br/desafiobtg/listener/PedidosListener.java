@@ -20,7 +20,7 @@ public class PedidosListener {
     PedidoService pedidoService;
 
     @RabbitListener(queues = "${queue.consumer}")
-    public void receivePedido(@Payload Pedido pedido) throws PedidoException {
+    public void receivePedido(@Payload Pedido pedido) {
         LOGGER.info("Mensagem recebida: " + pedido );
         try{
             PedidoEntity pedidoEntity = pedidoService.criarPedido(pedido);

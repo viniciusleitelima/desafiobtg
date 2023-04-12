@@ -26,7 +26,7 @@ public class PedidoService {
         return pedidoRepository.save(pedidoEntity);
     }
 
-    public String valorTotalDoPedido(Integer codigoPedido) throws PedidoNaoEncontradoException {
+    public String valorTotalDoPedido(Integer codigoPedido) {
         PedidoEntity pedidoEntity = pedidoRepository.findByCodigoPedido(codigoPedido);
         if (pedidoEntity == null) {
             throw new PedidoNaoEncontradoException("Pedido não encontrado.");
