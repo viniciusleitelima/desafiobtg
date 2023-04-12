@@ -1,57 +1,26 @@
-name: Docker Image CI
+name: Build and Publish Docker Image
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ master ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ master ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Set up JDK 17
+    - uses: actions/checkout@v2
+    - name: Set up JDK
       uses: actions/setup-java@v1
       with:
         java-version: 17
     - name: Build with Maven
-      run:
-        mvn clean install -DskipTests
-
-    - uses: actions/checkout@v1
-
-    - run: mkdir -p target/
-
-    - run: echo hello > target/desafiobtg-0.0.1-SNAPSHOT.jar
-
-    - uses: actions/upload-artifact@v1
+      run: mvn clean install -DskipTests
+    - name: Publish to Docker Hub
+      uses: docker/build-push-action@v1
       with:
-       name: desafiobtg-0.0.1-SNAPSHOT.jar
-       path: target/
-  deploy:
-    needs: [build]
+       username: viniciusll
+       password: Kell1@1723
+       repository: dockerHubUser/dockerHubRepository
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build Dockerfile and Push to The Hub
-  # You may pin to the exact commit or the version.
-  # uses: beehivewarrior/docker-hub-builder@296a60202ffe4099d493f06f2105a4e481710c0d
-      uses: beehivewarrior/docker-hub-builder@v1.0
-      with:
-    # The username to authenticate with dockerhub
-        DOCKERHUB_USERNAME: viniciusll
-        # The token to authenticate with dockerhub
-        DOCKERHUB_TOKEN: dckr_pat_ivE2hV8NqQVDCviP6dXQESOrtTw
-        # The tag of the base image
-        BASE_TAG: desafio-btg
-        # ARG input into Dockerfile for tag
-        TAG_NAME: viniciusll/desafio-btg
-        # Name of image to publish to dockerhub, e.g. 'user/my-image'
-        IMAGE_NAME: desafio-btg
-        # Platforms to build for (i.e. linux/arm64)
