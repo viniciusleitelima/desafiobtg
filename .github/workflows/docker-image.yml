@@ -22,5 +22,4 @@ jobs:
       with:
        username: viniciusll
        password: Kell1@1723
-       repository: dockerHubUser/dockerHubRepository
 
