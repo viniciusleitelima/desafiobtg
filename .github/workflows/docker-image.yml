@@ -22,4 +22,6 @@ jobs:
       with:
        username: viniciusll
        password: Kell1@1723
+       repository: viniciusll/desafio-btg
+       tags: ${{github.run_number}}
 
