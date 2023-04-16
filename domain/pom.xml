@@ -10,6 +10,9 @@
     <groupId>com.br.desafiobtg</groupId>
     <artifactId>domain</artifactId>
     <description>Demo project for Spring Boot</description>
+    <properties>
+        <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
