@@ -16,7 +16,7 @@ jobs:
       with:
         java-version: 17
     - name: Build domain.jar
-      run: mvn clean package  -DskipTests -f ./domain/pom.xml
+      run: mvn  clean install spring-boot:repackage  -DskipTests -f ./domain/pom.xml
     - name: Build integration.jar
       run: mvn clean package  -DskipTests -f ./integration/pom.xml
     - name: Build delivery.jar
