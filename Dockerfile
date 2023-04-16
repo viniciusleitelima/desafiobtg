@@ -10,6 +10,6 @@ RUN ls
 
 WORKDIR /applications
 
-COPY target/application.jar /applications/application.jar
+COPY target/desafiobtg-0.0.1-SNAPSHOT.jar /applications/desafiobtg.jar
 
 ENTRYPOINT ["java","-jar", "application.jar"]
