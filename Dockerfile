@@ -4,7 +4,6 @@ EXPOSE 8080
 
 WORKDIR /applications
 
-COPY ./target/application.jar /applications/application.jar
+COPY target/application.jar /applications/application.jar
 
 ENTRYPOINT ["java","-jar", "application.jar"]
-
