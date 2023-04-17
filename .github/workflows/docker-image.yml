@@ -16,7 +16,7 @@ jobs:
       with:
         java-version: 17  
     - name: Build install.jar
-      run: mvn clean install  
+      run: mvn  –X  clean install  
     - name: Publish to Docker Hub
       uses: docker/build-push-action@v1
       with:
