@@ -15,10 +15,8 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 17  
-    - name: Build domain.jar
-      run: mvn clean install -f ./domain/pom.xml
     - name: Build install.jar
-      run: mvn clean install -f ./application/pom.xml  
+      run: mvn clean install  
     - name: Publish to Docker Hub
       uses: docker/build-push-action@v1
       with:
