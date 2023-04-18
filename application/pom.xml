@@ -9,6 +9,7 @@
     </parent>
     <name>desafiobtg</name>
     <artifactId>application</artifactId>
+    <version>${project.parent.version}</version>
     <description>Demo project for Spring Boot</description>
     <dependencies>
         <dependency>

@@ -9,6 +9,7 @@
     </parent>
     <groupId>com.br.desafiobtg</groupId>
     <artifactId>domain</artifactId>
+    <version>${project.parent.version}</version>
     <description>Demo project for Spring Boot</description>
     <properties>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
